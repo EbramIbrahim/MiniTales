@@ -23,3 +23,4 @@ rootProject.name = "MiniTales"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":theme")
+include(":features:auth")

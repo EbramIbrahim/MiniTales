@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
@@ -7,17 +7,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.minitales"
+    namespace = "com.example.auth"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.minitales"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -42,10 +39,12 @@ android {
 }
 
 dependencies {
-    implementation(projects.theme)
+
+    implementation(projects.features.auth)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
 
     implementation(platform(libs.androidx.compose.bom))
@@ -59,13 +58,6 @@ dependencies {
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
-
-    implementation(libs.ktor.client.core)
-
-    implementation(libs.datastore)
-    implementation(libs.protobuf.javalite)
-
-    implementation(libs.timber)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
