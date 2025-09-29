@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MiniTalesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Text("Hello Abraam...")
+                    Text("Hello Abraam...", modifier = Modifier.padding(innerPadding))
                 }
             }
         }
