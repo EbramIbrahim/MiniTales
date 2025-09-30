@@ -2,10 +2,8 @@ package com.example.minitales
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.example.auth.authGraph
 import com.example.auth.authRoute
 
