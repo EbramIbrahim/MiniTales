@@ -22,7 +22,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MainNavHost(
                         navHostController = rememberNavController(),
-                        modifier = Modifier.background(MaterialTheme.colorScheme.background).padding(innerPadding)
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.background)
+                            .padding(innerPadding)
                     )
                 }
             }

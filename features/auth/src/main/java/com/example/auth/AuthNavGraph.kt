@@ -1,9 +1,11 @@
 package com.example.auth
 
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.example.auth.login.LoginScreen
 import com.example.auth.splash.SplashScreen
 
 const val authRoute = "auth"
@@ -16,7 +18,6 @@ sealed class AuthScreen(val route: String) {
 }
 
 
-
 fun NavGraphBuilder.authGraph(
     navController: NavController,
     onAuthSuccess: () -> Unit
@@ -24,9 +25,15 @@ fun NavGraphBuilder.authGraph(
 
     navigation(startDestination = AuthScreen.Splash.route, route = authRoute) {
         composable(route = AuthScreen.Splash.route) {
-            SplashScreen()
+            SplashScreen(navController)
+        }
+
+        composable(route = AuthScreen.Login.route) {
+            LoginScreen(viewModel())
         }
     }
+
+
 
 }
 
